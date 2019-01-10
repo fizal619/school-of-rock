@@ -4,19 +4,28 @@
     <title>PamelasPanel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://unpkg.com/picnic">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="flex">
+        <div class="left-header">
+          <%= image_tag  "logo.svg", class: "logo" %>
+          <h1>School of Rock</h1>
+        </div>
+        <div class="right-header">
+           <% if signed_in? %>
+            Signed in as: <%= current_user.email %>
+            <%= button_to 'Sign out', sign_out_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign in', sign_in_path, class: "button" %>
+          <% end %>
+        </div>
+      </div>
+    </header>
 
-    <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', sign_in_path %>
-    <% end %>
 
     <div id="flash">
       <% flash.each do |key, value| %>
@@ -25,5 +34,7 @@
     </div>
 
     <%= yield %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
