@@ -21,6 +21,10 @@ table {
   text-align: right;
 }
 
+.hidden {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   .page-body {
     margin-top: 200px;
