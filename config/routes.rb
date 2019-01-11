@@ -20,5 +20,11 @@ Rails.application.routes.draw do
   resources :students
   resources :instructors
 
+  post '/cohorts/:id/instructors/add' => 'cohorts#add_instructor'
+  post '/cohorts/:id/instructors/delete' => 'cohorts#remove_instructor'
+  post '/cohorts/:id/students/add' => 'cohorts#add_student'
+  post '/cohorts/:id/students/delete' => 'cohorts#remove_student'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

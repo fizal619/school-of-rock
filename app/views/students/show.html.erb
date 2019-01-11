@@ -1,2 +1,12 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<article class="card">
+  <header>
+    <h3>#<%= @student.id %> - <%= @student.name %></h3>
+  </header>
+  <p><b>Age: </b><%= @student.age %></p>
+  <p><b>Salary: </b><%= @student.salary %></p>
+  <p><b>Education: </b><%= @student.education %></p>
+  <footer>
+    <%= link_to  "Edit", edit_student_path( @student), class: 'button warning' %>
+    <%= link_to  "Delete", @student, class: 'button error', method: 'DELETE'%>
+  </footer>
+</article>

@@ -30,6 +30,30 @@ class CohortsController < ApplicationController
     redirect_to '/cohorts'
   end
 
+  def add_instructor
+    @cohort = Cohort.find(params[:id])
+    @cohort.instructors << Instructor.find(params[:instructor_id])
+    redirect_to @cohort
+  end
+
+  def remove_instructor
+    @cohort = Cohort.find(params[:id])
+    @cohort.instructors.delete Instructor.find(params[:instructor_id])
+    redirect_to @cohort
+  end
+
+  def add_student
+    @cohort = Cohort.find(params[:id])
+    @cohort.students << Student.find(params[:student_id])
+    redirect_to @cohort
+  end
+
+  def remove_student
+    @cohort = Cohort.find(params[:id])
+    @cohort.students.delete Student.find(params[:student_id])
+    redirect_to @cohort
+  end
+
   private
     def cohort_params
       params.require(:cohort).permit(:name, :start, :end, :course_id)

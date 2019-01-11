@@ -7,6 +7,64 @@
   <p><b><%= @cohort.start %> to <%= @cohort.end %></b></p>
   <footer>
     <%= link_to  "Edit", edit_cohort_path(@cohort), class: 'button warning' %>
-    <%= link_to  "Delete", @cohort, class: 'button error', method: 'DELETE', remote: true %>
+    <%= link_to  "Delete", @cohort, class: 'button error', method: 'DELETE' %>
   </footer>
 </article>
+
+<h2>Instructors</h2>
+<table class="primary">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Age </th>
+      <th> Salary </th>
+      <th> Education </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cohort.instructors.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= link_to  c.name, c, method: 'GET' %></td>
+        <td><%= c.age %></td>
+        <td><%= c.salary %></td>
+        <td><%= c.education %></td>
+        <td>
+          <%= link_to  "Edit", edit_instructor_path(c), class: 'button warning', method: 'GET' %>
+          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<h2>Students</h2>
+<table class="primary">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Age </th>
+      <th> Education </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cohort.students.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= link_to  c.name, c, method: 'GET' %></td>
+        <td><%= c.age %></td>
+        <td><%= c.education %></td>
+        <td>
+          <%= link_to  "Edit", edit_student_path(c), class: 'button warning', method: 'GET' %>
+          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

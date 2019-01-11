@@ -1,0 +1,23 @@
+<%= form_for( @student ) do |f| %>
+  <div class="flex">
+    <div class="half">
+      <%= label_tag 'name', "Name" %>
+      <%= f.text_field(:name) %>
+    </div>
+    <div class="half">
+      <%= label_tag 'age', "Age" %>
+      <%= f.number_field(:age) %>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="half">
+      <%= label_tag 'education', "Education" %>
+      <%= f.select :education, ['High School', 'Bachelors', 'Masters', 'Phd', 'Self Taught'].collect { |c| [ c, c ] } %>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="off-half form-button">
+      <button > Save </button>
+    </div>
+  </div>
+<% end %>

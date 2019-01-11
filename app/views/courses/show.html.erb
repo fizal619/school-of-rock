@@ -6,6 +6,6 @@
   <p><b><%= @course.hours %> hrs</b></p>
   <footer>
     <%= link_to  "Edit", edit_course_path(@course), class: 'button warning' %>
-    <%= link_to  "Delete", @course, class: 'button error', method: 'DELETE', remote: true %>
+    <%= link_to  "Delete", @course, class: 'button error', method: 'DELETE' %>
   </footer>
 </article>

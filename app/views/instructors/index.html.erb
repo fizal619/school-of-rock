@@ -1,2 +1,32 @@
-<h1>Instructors#index</h1>
-<p>Find me in app/views/instructors/index.html.erb</p>
+<button id="show-form"> Create an Instructor</button>
+<div id="form" class="hidden">
+  <%= render partial: '/instructors/form', object: @instructor %>
+</div>
+<h2>All Instructors</h2>
+<table class="primary">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Age </th>
+      <th> Salary </th>
+      <th> Education </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @instructors.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= link_to  c.name, c, method: 'GET' %></td>
+        <td><%= c.age %></td>
+        <td><%= c.salary %></td>
+        <td><%= c.education %></td>
+        <td>
+          <%= link_to  "Edit", edit_instructor_path(c), class: 'button warning', method: 'GET' %>
+          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

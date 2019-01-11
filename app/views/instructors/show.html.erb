@@ -1,2 +1,12 @@
-<h1>Instructors#show</h1>
-<p>Find me in app/views/instructors/show.html.erb</p>
+<article class="card">
+  <header>
+    <h3>#<%= @instructor.id %> - <%= @instructor.name %></h3>
+  </header>
+  <p><b>Age: </b><%= @instructor.age %></p>
+  <p><b>Salary: </b><%= @instructor.salary %></p>
+  <p><b>Education: </b><%= @instructor.education %></p>
+  <footer>
+    <%= link_to  "Edit", edit_instructor_path(@instructor), class: 'button warning' %>
+    <%= link_to  "Delete", @instructor, class: 'button error', method: 'DELETE'%>
+  </footer>
+</article>
