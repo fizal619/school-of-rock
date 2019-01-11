@@ -11,29 +11,46 @@
   <body>
     <header>
       <div class="flex">
+        <div></div>
         <div class="left-header">
           <%= image_tag  "logo.svg", class: "logo" %>
           <h1>School of Rock</h1>
         </div>
         <div class="right-header">
-           <% if signed_in? %>
-            Signed in as: <%= current_user.email %>
-            <%= button_to 'Sign out', sign_out_path, method: :delete %>
-          <% else %>
-            <%= link_to 'Sign in', sign_in_path, class: "button" %>
-          <% end %>
+          <div class="flex center">
+            <% if signed_in? %>
+              <div>
+                <p id="email">Signed in as: <%= current_user.email %></p>
+              </div>
+              <div>
+                <%= button_to 'Sign out', sign_out_path, method: :delete %>
+              </div>
+            <% else %>
+              <div></div>
+              <div>
+                <%= link_to 'Sign in', sign_in_path, class: "button" %>
+              </div>
+            <% end %>
+          </div>
         </div>
+        <div></div>
       </div>
     </header>
 
-
-    <div id="flash">
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
+    <center>
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+    </center>
+    <div class="flex">
+      <div></div>
+      <div>
+        <%= yield %>
+      </div>
+      <div></div>
     </div>
-
-    <%= yield %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>

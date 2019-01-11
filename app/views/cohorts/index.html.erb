@@ -1,2 +1,6 @@
-<h1>Cohorts#index</h1>
-<p>Find me in app/views/cohorts/index.html.erb</p>
+<%= form_for( @cohort , remote: true) do |f| %>
+  <%= text_field_tag (:name) %>
+  <%= date_field (:start) %>
+  <%= date_field (:end) %>
+  <%= select_tag "course_id", options_from_collection_for_select(Course.all, "id", "name") %>
+<% end %>

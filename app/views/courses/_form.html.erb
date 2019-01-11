@@ -1,0 +1,21 @@
+<%= form_for( @item ) do |f| %>
+  <div class="flex">
+    <div>
+      <%= label_tag 'name', "Name" %>
+      <%= f.text_field(:name) %>
+    </div>
+    <div>
+      <%= label_tag 'hours', "Hours" %>
+      <%= f.text_field(:hours) %>
+    </div>
+  </div>
+  <div>
+    <%= label_tag 'description', "Description" %>
+    <%= f.text_area :description  %>
+  </div>
+  <div class="flex">
+    <div class="off-half form-button">
+      <button > Save </button>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+
+.logo {
+  height: 32px;
+}
+
+.left-header {
+  text-align: left;
+}
+
+.right-header {
+  text-align: right;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.left-header * {
+  display: inline-block;
+}
+
+#email {
+  line-height: 18px;
+}
+
+.form-button {
+  text-align: right;
+}
+
+table {
+  width: 100%;
+}

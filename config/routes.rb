@@ -12,17 +12,13 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  get 'instructors/index'
-  get 'instructors/show'
-  get 'instructors/edit'
-  get 'students/index'
-  get 'students/show'
-  get 'students/edit'
-  get 'courses/index'
-  get 'courses/show'
-  get 'courses/edit'
-  get 'cohorts/index'
-  get 'cohorts/show'
-  get 'cohorts/edit'
+
+  root to: "cohorts#index"
+
+  resources :cohorts
+  resources :courses
+  resources :students
+  resources :instructors
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
