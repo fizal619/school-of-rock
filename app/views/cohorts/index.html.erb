@@ -1,10 +1,32 @@
-<%= form_for( @item , remote: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :start %>
-  <%= f.date_field :start %>
-  <%= f.label :end %>
-  <%= f.date_field :end %>
-  <%= f.label :cohort %>
-  <%= select_tag "cohort[course_id]", options_from_collection_for_select(Course.all, "id", "name") %>
-<% end %>
+<button id="show-form"> Create a Cohort</button>
+<div id="form" class="hidden">
+  <%= render partial: '/cohorts/form', object: @cohort %>
+</div>
+<h2>All Cohorts</h2>
+<table class="primary">
+  <thead>
+    <tr>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Start </th>
+      <th> End </th>
+      <th> Course </th>
+      <th> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cohorts.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= link_to  c.name, c, method: 'GET' %></td>
+        <td><%= c.start %></td>
+        <td><%= c.end %></td>
+        <td><%= link_to  c.course.name, c.course, method: 'GET' %></td>
+        <td>
+          <%= link_to  "Edit", edit_cohort_path(c), class: 'button warning', method: 'GET' %>
+          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,6 +1,6 @@
 <button id="show-form"> Create a Course</button>
 <div id="form" class="hidden">
-  <%= render partial: '/courses/form', object: @item %>
+  <%= render partial: '/courses/form', object: @course %>
 </div>
 <h2>All Courses</h2>
 <table class="primary">
@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% Course.all.each do |c| %>
+    <% @courses.each do |c| %>
       <tr>
         <td><%= c.id %></td>
         <td><%= link_to  c.name, c, method: 'GET' %></td>

@@ -1,2 +1,12 @@
-<h1>Cohorts#show</h1>
-<p>Find me in app/views/cohorts/show.html.erb</p>
+<article class="card">
+  <header>
+    <h3>#<%= @cohort.id %> - <%= @cohort.name %></h3>
+  </header>
+  <p><b>Course:</b> <%= @cohort.course.name %></p>
+  <p><b>Description:</b> <%= @cohort.course.description %></p>
+  <p><b><%= @cohort.start %> to <%= @cohort.end %></b></p>
+  <footer>
+    <%= link_to  "Edit", edit_cohort_path(@cohort), class: 'button warning' %>
+    <%= link_to  "Delete", @cohort, class: 'button error', method: 'DELETE', remote: true %>
+  </footer>
+</article>

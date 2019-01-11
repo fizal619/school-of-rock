@@ -1,0 +1,27 @@
+<%= form_for( @cohort ) do |f| %>
+  <div class="flex">
+    <div class="half">
+      <%= label_tag 'name', "Name" %>
+      <%= f.text_field(:name) %>
+    </div>
+    <div class="half">
+      <%= label_tag 'course', "Course" %>
+      <%= f.select :course_id, Course.all.collect { |c| [ c.name, c.id ] } %>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="half">
+      <%= label_tag 'start', "Start" %>
+      <%= f.date_field(:start) %>
+    </div>
+    <div class="half">
+      <%= label_tag 'end', "End" %>
+      <%= f.date_field(:end) %>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="off-half form-button">
+      <button > Save </button>
+    </div>
+  </div>
+<% end %>

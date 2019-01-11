@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   def index
-    @item = Course.new
-    @items = Course.all
+    @course = Course.new
+    @courses = Course.all
   end
 
   def show
@@ -14,19 +14,19 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @item = Course.find(params[:id])
+    @course = Course.find(params[:id])
   end
 
   def update
-    @item = Course.find(params[:id])
-    @item.update(course_params)
-    @item.save
+    @course = Course.find(params[:id])
+    @course.update(course_params)
+    @course.save
     redirect_to '/courses'
   end
 
   def destroy
-    @item = Course.find(params[:id])
-    @item.destroy
+    @course = Course.find(params[:id])
+    @course.destroy
     redirect_to '/courses'
   end
 
