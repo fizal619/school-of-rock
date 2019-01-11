@@ -32,16 +32,25 @@
         <td><%= c.salary %></td>
         <td><%= c.education %></td>
         <td>
-          <%= link_to  "Edit", edit_instructor_path(c), class: 'button warning', method: 'GET' %>
-          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
+          <%= form_tag( "/cohorts/#{@cohort.id}/instructors/delete" , remote: false, method: 'POST') do |f| %>
+            <%= hidden_field_tag :instructor_id, c.id %>
+            <button class="error"> Remove from course </button>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
-
+<br>
+<div class="flex">
+  <div class="half off-half">
+    <%= form_tag( "/cohorts/#{@cohort.id}/instructors/add" , remote: false, method: 'POST') do |f| %>
+      <%= select_tag "instructor_id", options_from_collection_for_select(Instructor.all, "id", "name") %>
+      <button class="success"> Add Instructor </button>
+    <% end %>
+  </div>
+</div>
+<br>
 <h2>Students</h2>
 <table class="primary">
   <thead>
@@ -61,10 +70,21 @@
         <td><%= c.age %></td>
         <td><%= c.education %></td>
         <td>
-          <%= link_to  "Edit", edit_student_path(c), class: 'button warning', method: 'GET' %>
-          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
+          <%= form_tag( "/cohorts/#{@cohort.id}/students/delete" , remote: false, method: 'POST') do |f| %>
+            <%= hidden_field_tag :student_id, c.id %>
+            <button class="error"> Remove from course </button>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
+<div class="flex">
+  <div class="half off-half">
+    <%= form_tag( "/cohorts/#{@cohort.id}/students/add" , remote: false, method: 'POST') do |f| %>
+      <%= select_tag "student_id", options_from_collection_for_select(Student.all, "id", "name") %>
+      <button class="success"> Add Student </button>
+    <% end %>
+  </div>
+</div>
