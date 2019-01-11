@@ -22,7 +22,7 @@
         <td><%= c.hours %></td>
         <td>
           <%= link_to  "Edit", edit_course_path(c), class: 'button warning', method: 'GET' %>
-          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE', remote: true %>
+          <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
         </td>
       </tr>
     <% end %>
