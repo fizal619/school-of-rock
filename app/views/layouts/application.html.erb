@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PamelasPanel</title>
+    <title>School of Rock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://unpkg.com/picnic">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -51,7 +53,26 @@
       </div>
       <div></div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="footer">
+      <div class="flex">
+        <div></div>
+        <div>
+          <h2>Records:</h2>
+          <a href="/" class="button">Home</a>
+          <a href="/cohorts" class="button">Cohorts</a>
+          <a href="/courses" class="button">Courses</a>
+          <a href="/instructors" class="button">Instructors</a>
+          <a href="/students" class="button">Students</a>
+        </div>
+        <div></div>
+      </div>
+    </footer>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

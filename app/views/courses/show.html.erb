@@ -1,2 +1,11 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<article class="card">
+  <header>
+    <h3>#<%= @course.id %> - <%= @course.name %></h3>
+  </header>
+  <p><%= @course.description %></p>
+  <p><b><%= @course.hours %> hrs</b></p>
+  <footer>
+    <%= link_to  "Edit", edit_course_path(@course), class: 'button warning' %>
+    <%= link_to  "Delete", @course, class: 'button error', method: 'DELETE', remote: true %>
+  </footer>
+</article>

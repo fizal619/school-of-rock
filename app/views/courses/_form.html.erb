@@ -1,12 +1,12 @@
 <%= form_for( @item ) do |f| %>
   <div class="flex">
-    <div>
+    <div class="half">
       <%= label_tag 'name', "Name" %>
       <%= f.text_field(:name) %>
     </div>
-    <div>
+    <div class="half">
       <%= label_tag 'hours', "Hours" %>
-      <%= f.text_field(:hours) %>
+      <%= f.number_field(:hours) %>
     </div>
   </div>
   <div>

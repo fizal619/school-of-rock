@@ -1,27 +1,27 @@
-<h2>Create a Course </h2>
-<%= render partial: '/courses/form', object: @item %>
-
+<button id="show-form"> Create a Course</button>
+<div id="form" class="hidden">
+  <%= render partial: '/courses/form', object: @item %>
+</div>
 <h2>All Courses</h2>
-<table>
+<table class="primary">
   <thead>
     <tr>
-    <% Course.column_names.each do |c| %>
-      <th> <%= c.capitalize %></th>
-    <% end %>
-    <th> Actions </th>
+      <th> ID </th>
+      <th> Name </th>
+      <th> Description </th>
+      <th> Hours </th>
+      <th> Actions </th>
     </tr>
   </thead>
   <tbody>
     <% Course.all.each do |c| %>
       <tr>
         <td><%= c.id %></td>
-        <td><%= c.name %></td>
+        <td><%= link_to  c.name, c, method: 'GET' %></td>
         <td><%= c.description %></td>
-        <td><%= c.created_at.to_date %></td>
-        <td><%= c.updated_at.to_date %></td>
-        <td><%=  c.hours %></td>
+        <td><%= c.hours %></td>
         <td>
-          <%= link_to  "Edit", edit_course_path(c), class: 'button warning' %>
+          <%= link_to  "Edit", edit_course_path(c), class: 'button warning', method: 'GET' %>
           <%= link_to  "Delete", c, class: 'button error', method: 'DELETE', remote: true %>
         </td>
       </tr>
