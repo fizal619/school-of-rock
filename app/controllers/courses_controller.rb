@@ -1,4 +1,8 @@
 class CoursesController < ApplicationController
+
+  before_action :require_login
+
+
   def index
     @course = Course.new
     @courses = Course.all

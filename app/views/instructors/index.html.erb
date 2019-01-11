@@ -22,7 +22,7 @@
         <td><%= c.age %></td>
         <td><%= c.salary %></td>
         <td><%= c.education %></td>
-        <td>
+        <td class="right-text">
           <%= link_to  "Edit", edit_instructor_path(c), class: 'button warning', method: 'GET' %>
           <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
         </td>

@@ -1,5 +1,8 @@
 class StudentsController < ApplicationController
- def index
+
+  before_action :require_login
+
+  def index
     @student = Student.new
     @students = Student.all
   end

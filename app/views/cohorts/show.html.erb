@@ -31,7 +31,7 @@
         <td><%= c.age %></td>
         <td><%= c.salary %></td>
         <td><%= c.education %></td>
-        <td>
+        <td class="right-text">
           <%= form_tag( "/cohorts/#{@cohort.id}/instructors/delete" , remote: false, method: 'POST') do |f| %>
             <%= hidden_field_tag :instructor_id, c.id %>
             <button class="error"> Remove from course </button>
@@ -69,7 +69,7 @@
         <td><%= link_to  c.name, c, method: 'GET' %></td>
         <td><%= c.age %></td>
         <td><%= c.education %></td>
-        <td>
+        <td class="right-text">
           <%= form_tag( "/cohorts/#{@cohort.id}/students/delete" , remote: false, method: 'POST') do |f| %>
             <%= hidden_field_tag :student_id, c.id %>
             <button class="error"> Remove from course </button>

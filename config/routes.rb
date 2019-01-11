@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
-  root to: "cohorts#index"
+  root to: "static_pages#index"
 
   resources :cohorts
   resources :courses

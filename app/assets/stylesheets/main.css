@@ -1,42 +1,28 @@
 
 .logo {
   height: 32px;
+  margin-top: 5px;
 }
 
-.left-header {
-  text-align: left;
+nav {
+  text-align: center;
 }
 
-.right-header {
-  text-align: right;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-.left-header * {
-  display: inline-block;
-}
-
-#email {
-  line-height: 18px;
-}
-
-.form-button {
-  text-align: right;
+body {
+  margin-top: 80px;
+  background: whitesmoke;
 }
 
 table {
   width: 100%;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background: whitesmoke;
+.right-text {
+  text-align: right;
 }
 
-.hidden {
-  display:none;
+@media only screen and (max-width: 600px) {
+  .page-body {
+    margin-top: 200px;
+  }
 }

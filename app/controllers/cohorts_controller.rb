@@ -1,4 +1,7 @@
 class CohortsController < ApplicationController
+
+  before_action :require_login
+
   def index
     @cohort = Cohort.new
     @cohorts = Cohort.all

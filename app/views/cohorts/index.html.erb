@@ -22,7 +22,7 @@
         <td><%= c.start %></td>
         <td><%= c.end %></td>
         <td><%= link_to  c.course.name, c.course, method: 'GET' %></td>
-        <td>
+        <td class="right-text">
           <%= link_to  "Edit", edit_cohort_path(c), class: 'button warning', method: 'GET' %>
           <%= link_to  "Delete", c, class: 'button error', method: 'DELETE' %>
         </td>
